@@ -11,16 +11,15 @@ user_weight = float(input("А теперь давай узнеам твой ве
 user_height = float(input("Напиши еще свой рост в метрах пожалуйста:"))
 
 
-# 3. Логика расчетов 
+# 3. Логика расчетов
 bmi = user_weight / (user_height ** 2)
-round_bmi = round(bmi, 1)  
+round_bmi = round(bmi, 1)
 
-
-water_ml = user_weight * 30 
+water_ml = user_weight * 30
 water_l = water_ml / 1000
 
 
 # 4. Вывод красивого результата
-print(f"Отчет для пользователя: {user_name}, {user_age}")  
+print(f"Отчет для пользователя: {user_name}, {user_age}")
 print(f"Твой Индекс Массы Тела: {round_bmi}")
-print(f"Рекомендуемая норма воды: {water_l} в день")  
+print(f"Рекомендуемая норма воды: {water_l} в день")
