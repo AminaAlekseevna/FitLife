@@ -4,11 +4,13 @@ WATER_PER_KG = 30
 ML_IN_LITER = 1000
 DECIMAL_PLACES = 1
 
+
 # 1. Знакомство
-def main():
+def main():  
+    """Запускает фитнес-бота: собирает данные, считает ИМТ и норму воды, выводит отчет."""
     print("Здравствуйте! Я фитнес-бот для расчета ИМТ")
     user_name = input("Как вас зовут? ")
-    age_input: str = input("Сколько вам лет? ")
+    age_input = input("Сколько вам лет? ")
     user_age = int(float(age_input.replace(',', '.')))
 
 
@@ -28,6 +30,8 @@ def main():
 
 # 4. Вывод красивого результата
     return user_name, user_age, round_bmi, water_l
+
+
 if __name__ == '__main__':
     name, age, bmi_val, water_val = main()
 print(
