@@ -1,25 +1,36 @@
 # Проект FitLife - MVP версия 1.0
 
+WATER_PER_KG = 30  # мл воды на 1 кг веса
+ML_IN_LITER = 1000  # мл в одном литре
+DECIMAL_PLACES = 1  # количество знаков после запятой для округления
+
 # 1. Знакомство
-print("Здравтвуйте! Я фитнес-бот для рассчета ИМТ! Давай знакомится!")
-user_name = input("Как вас зовут?")
-user_age = int(input("Сколько вам лет? Введите свой возраст цифрами:"))
+def main(): 
+    print("Здравствуйте! Я фитнес-бот для расчета ИМТ")
+    user_name = input("Как вас зовут? ")
+    age_input: str = input("Сколько вам лет? ")
+    user_age = int(float(age_input.replace(',', '.')))
 
 
 # 2. Сбор данных
-user_weight = float(input("А теперь давай узнеам твой вес, напиши его в кг:"))
-user_height = float(input("Напиши еще свой рост в метрах пожалуйста:"))
+    weight_input = input("Ваш вес в кг: ") 
+    user_weight = float(weight_input.replace(',', '.'))
+    height_input = input("Ваш рост в метрах: ")
+    user_height = float(height_input.replace(',', '.'))
 
 
 # 3. Логика расчетов
-bmi = user_weight / (user_height ** 2)
-round_bmi = round(bmi, 1)
-
-water_ml = user_weight * 30
-water_l = water_ml / 1000
+    bmi = user_weight / (user_height ** 2) 
+    round_bmi = round(bmi, DECIMAL_PLACES)
+    water_ml = user_weight * WATER_PER_KG
+    water_l = water_ml / ML_IN_LITER
 
 
 # 4. Вывод красивого результата
-print(f"Отчет для пользователя: {user_name}, {user_age}")
-print(f"Твой Индекс Массы Тела: {round_bmi}")
-print(f"Рекомендуемая норма воды: {water_l} в день")
+    return user_name, user_age, round_bmi, water_l
+if __name__ == '__main__':
+    name, age, bmi_val, water_val = main()
+print(
+        f"Отчет для пользователя: {name}, {age} лет\n"
+        f"Твой Индекс Массы Тела: {bmi_val}\n"
+        f"Рекомендуемая норма воды: {water_val} л в день") 
