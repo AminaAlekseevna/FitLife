@@ -10,24 +10,21 @@ def main():
     """Запускает бота:собирает данные, считает ИМТ и норму воды,отчет."""
     print("Здравствуйте! Я фитнес-бот для расчета ИМТ")
     user_name = input("Как вас зовут? ")
-    age_input = input("Сколько вам лет? ")
-    user_age = int(float(age_input.replace(',', '.')))
+    user_age = input("Сколько вам лет? ")
 
 
-    # 2. Сбор данных
     weight_input = input("Ваш вес в кг: ")
     user_weight = float(weight_input.replace(',', '.'))
     height_input = input("Ваш рост в метрах: ")
+    user_height = float(height_input.replace(',', '.'))
 
 
-    # 3. Логика расчетов
     bmi = user_weight / (user_height ** 2)
     round_bmi = round(bmi, DECIMAL_PLACES)
     water_ml = user_weight * WATER_PER_KG
     water_l = water_ml / ML_IN_LITER
 
 
-    # 4. Вывод красивого результата
     return user_name, user_age, round_bmi, water_l
 
 
