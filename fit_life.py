@@ -24,6 +24,7 @@ def main():
 
     return user_name, user_age, round_bmi, water_l
 
+
 if __name__ == '__main__':
     name, age, bmi_val, water_val = main()
     print(
